@@ -1,0 +1,40 @@
+/* Parallax Effect for Hero Section */
+.hero {
+    position: relative;
+    background-image: url('./images/bg.img'); /* Change to your background image */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;  /* Key for Parallax effect */
+    height: 100vh;  /* Make the hero section cover the entire viewport */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  .hero p {
+    font-size: 1.5rem;
+    margin: 20px 0;
+  }
+  
+  .hero .btn {
+    font-size: 1.2rem;
+    padding: 12px 30px;
+    background-color: #fff;
+    color: #333;
+    border: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+  }
+  
+  .hero .btn:hover {
+    background-color: #333;
+    color: #fff;
+  }
+  

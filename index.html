@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marci Metzger Homes</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            scroll-behavior: smooth;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+
+
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Noto Serif JP", serif;
+            font-weight: 400 !important;
+            text-transform: uppercase;
+        }
+
+        .navbar {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: transparent;
+            /* Transparent navbar */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .navbar .navbar-brand,
+        .navbar .nav-link {
+            color: #fff !important;
+            /* Font color of navbar */
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-link {
+            margin: 0 15px;
+        }
+
+        .navbar .nav-link:hover {
+            color: #f0ad4e !important;
+        }
+
+        .navbar.scrolled {
+            background-color: #fff !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar.scrolled img {
+            filter: invert(1);
+        }
+
+        .navbar.scrolled .navbar-brand,
+        .navbar.scrolled .nav-link {
+            color: #141414 !important;
+        }
+
+        .scroll-container {
+            overflow-y: scroll;
+            height: 100vh;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            background-image: url('./images/bg.img');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* ADD BLUR TO HERO SECTION */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            /* Lighter dark overlay for contrast */
+            z-index: 1;
+        }
+
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin: 20px 0;
+        }
+
+        .hero .btn {
+            font-size: 1.2rem;
+            padding: 12px 30px;
+            background-color: #fff;
+            color: #333;
+            border: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .hero .btn:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding-top: 96px;
+            padding-bottom: 96px;
+        }
+
+        #about,
+        #contact {
+            background-color: #f5f5f5;
+        }
+
+        #listings {
+            background-color: #e9ecef;
+        }
+
+        .section-content {
+            color: #333;
+        }
+
+        .section-content h2 {
+            font-size: 2.7rem;
+            margin-bottom: 20px;
+        }
+
+        .section-content p {
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .section-content .btn {
+            font-size: 1.1rem;
+            padding: 12px 30px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .section-content .btn:hover {
+            background-color: #f0ad4e;
+        }
+
+        #search {
+            position: relative;
+            background-image: url('./images/bg2.webp');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            color: #141414;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        #search::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        #search .section-content {
+            position: relative;
+            z-index: 2;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .search-form {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #555;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #fff;
+            color: #141414;
+        }
+
+        select:focus,
+        input:focus {
+            outline: none;
+            border-color: #FFD700;
+            box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            background-color: #FFD700;
+            color: #141414;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #141414;
+            color: #fff;
+        }
+
+        @media (max-width: 1024px) {
+            .search-form {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .search-form {
+                grid-template-columns: 1fr;
+            }
+
+            .form-title {
+                font-size: 20px;
+            }
+
+            .submit-btn {
+                grid-column: span 1;
+            }
+
+            section {
+                height: auto;
+                padding-top: 64px;
+                padding-bottom: 64px;
+            }
+
+            .navbar {
+                position: relative;
+            }
+
+            .navbar img {
+                filter: invert(1);
+            }
+
+            .navbar .nav-link {
+                color: #f0ad4e !important;
+            }
+
+            .navbar-toggler-icon {
+                color: #141414;
+            }
+
+        }
+
+
+        @media (max-width: 520px) {
+            .hero {
+                padding-top: 60px;
+                padding-bottom: 60px;
+            }
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        iframe {
+            width: 100%;
+            min-height: 400px;
+        }
+
+        .map-section {
+            width: 100%;
+        }
+
+        .logo {
+            max-width: 230px;
+        }
+
+        /* */
+        .contact {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+        }
+
+        .contact .form-control {
+            border: none;
+            border-bottom: 2px solid #ccc;
+            border-radius: 0;
+            background-color: transparent;
+            box-shadow: none;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .contact .form-control:focus {
+            border-bottom: 2px solid #007bff;
+            /* or any color you prefer */
+            outline: none;
+            box-shadow: none;
+        }
+
+        .contact h2,
+        .contact h3 {
+            color: #333;
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        .contact .lead {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+        }
+
+        .contact ul {
+            padding-left: 20px;
+        }
+
+        .contact li {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .contact a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        .contact .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .contact .form-control {}
+
+        .contact .btn {
+            background-color: #007bff;
+            color: white;
+            border-radius: 0.375rem;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .contact .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            background-color: #141414;
+            color: #fff;
+        }
+
+        .footer a {
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #f0ad4e;
+        }
+
+        .social-links a {
+            color: #fff;
+        }
+
+        .social-links i {
+            width: 30px;
+            height: 30px;
+        }
+
+
+        .contact-section-parallax {
+            position: relative;
+            background-image: url('./images/contact-bg.webp');
+            /* Replace with your image */
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .contact-section-parallax::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            /* dark overlay for readability */
+            z-index: 1;
+        }
+
+        .contact-section-parallax .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .custom-contact-form {
+            background: transparent;
+        }
+
+        .custom-input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #fff;
+            border-radius: 0;
+            color: #fff;
+            box-shadow: none;
+        }
+
+        .custom-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .custom-input:focus {
+            outline: none;
+            box-shadow: none;
+            border-bottom: 1px solid #FFD700;
+            /* optional highlight color */
+            background-color: transparent;
+        }
+
+        label {
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand animate__animated animate__zoomIn" href="#hero"><img src="./images/logo2.webp" alt="" class="logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#listings">Listings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Scroll Container -->
+    <div class="scroll-container">
+
+        <!-- Hero -->
+        <section id="hero" class="hero">
+            <div class="container">
+                <h1>Welcome to Marci Metzger Homes</h1>
+                <p>Your trusted Pahrump Realtor with nearly 30 years of experience</p>
+                <a href="#listings" class="btn btn-light">View Listings</a>
+            </div>
+        </section>
+        <!-- About -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-content text-start">
+
+                    <h2 class="">About Marci</h2>
+                </div>
+                <div class="row">
+                    <!-- Left Column (Image or any other content) -->
+                    <div class="col-md-5">
+                        <div class="section-content d-flex justify-content-center align-items-center h-100">
+                            <img src="./images/marci.webp" class="w-100" alt="">
+                        </div>
+                    </div>
+
+                    <!-- Right Column (Text content) -->
+                    <div class="col-md-7 text-left d-flex flex-column justify-content-center align-items-center">
+                        <div class="section-content">
+                            <p>Marci is an experienced REALTOR® and licensed Broker with a career that spans back to
+                                1995. Over the years, she has had the privilege of assisting buyers and sellers in
+                                diverse markets, building a wealth of knowledge and expertise in the process.</p>
+
+                            <p>"I've always been drawn to the unique charm of small-town living, and Pahrump offers just
+                                that—combined with incredible amenities. From scenic golf courses and tranquil parks to
+                                a welcoming community, it’s the perfect place for both work and relaxation. Whether
+                                you're seeking a fast-paced lifestyle or a peaceful retreat, there's a home here for
+                                you." </p>
+
+                            <p class="m-0">"Living in the Mountain Falls community, I truly understand what makes
+                                Pahrump special. My goal is to help you find a home that fits your needs, just as this
+                                community has been a perfect fit for me."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Search -->
+        <section id="search" class="search">
+            <div class="section-content">
+                <h4 class="form-title">Search Listings</h4>
+                <form class="search-form">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group"><label for="type">Type</label><select id="type">
+                                    <option value="">Any</option>
+                                    <option value="7">Land</option>
+                                    <option value="11">Residential Lease</option>
+                                    <option value="6">High Rise</option>
+                                    <option value="1">Residential</option>
+                                </select></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group"><label for="location">Location</label><select id="location">
+                                    <option value="">Any</option>
+                                    <option value="433">Alamo</option>
+                                    <option value="934">Alton</option>
+                                </select></div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group"><label for="sort">Sort By</label><select id="sort">
+                                    <option value="newest">Newest</option>
+                                    <option value="oldest">Oldest</option>
+                                    <option value="pra">Least Expensive to Most</option>
+                                    <option value="prd">Most Expensive to Least</option>
+                                </select></div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group"><label for="bedrooms">Bedrooms</label><select id="bedrooms">
+                                    <option value="">Any</option>
+                                    <option value="0">Studio</option>
+                                    <option value="1">1+</option>
+                                    <option value="2">2+</option>
+                                    <option value="3">3+</option>
+                                    <option value="4">4+</option>
+                                </select></div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group"><label for="baths">Baths</label><select id="baths">
+                                    <option value="">Any</option>
+                                    <option value="1">1+</option>
+                                    <option value="2">2+</option>
+                                    <option value="3">3+</option>
+                                </select></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group"><label for="min-price">Min Price</label><input type="number"
+                                    id="min-price" placeholder="Enter min price"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group"><label for="max-price">Max Price</label><input type="number"
+                                    id="max-price" placeholder="Enter max price"></div>
+                        </div>
+                        <div class="col-md-6 offset-3">
+                            <div class="form-group"><button type="submit" class="submit-btn">Search Now</button></div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+        <!-- Listings -->
+        <section id="listings" class="listings">
+            <div class="section-content container">
+                <h2>GET IT SOLD</h2>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <img src="./images/sold-2.webp" alt="" class="mw-100 mb-3">
+                        <h4>Don't Just List it...</h4>
+                        <p>Get it SOLD! We exhaust every avenue to ensure our listings are at the fingertips of every
+                            possible buyer, getting you top dollar for your home.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="./images/sold-1.webp" alt="" class="mw-100 mb-3">
+                        <h4>
+                            Top Residential Sales Last 5 Years
+                        </h4>
+                        <p>We helped nearly 90 clients in 2021, and closed 28.5 million in sales!
+
+                            Our team works hard everyday to grow and learn, so that we may continue to excel in our
+                            market.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="./images/sold-3.webp" alt="" class="mw-100 mb-3">
+                        <h4>Guide to Buyers</h4>
+                        <p>Nobody knows the market like we do. Enjoy having a pro at your service. Market analysis,
+                            upgrades lists, contractors on speed dial, & more!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section-parallax py-5">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Contact Form -->
+                    <div class="col-md-6">
+                        <h2 class="text-white">Send a Message</h2>
+                        <form class="custom-contact-form" action="mailto:marcimetzger@gmail.com" method="post"
+                            enctype="text/plain">
+                            <div class="form-group">
+                                <label for="name" class="text-white">Full Name</label>
+                                <input type="text" id="name" name="name" class="form-control custom-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="text-white">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-control custom-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message" class="text-white">Your Message</label>
+                                <textarea id="message" name="message" class="form-control custom-input" rows="4"
+                                    required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-outline-light">Send Message</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section class="map">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 section-content">
+                        <h2 class="mb-4">Contact Marci Metzger</h2>
+                        <li class="list-unstyled mb-2">Your trusted Pahrump Realtor with nearly 30 years of experience.
+                        </li>
+                        <ul class="list-unstyled">
+                            <li><strong>Email:</strong> <a
+                                    href="mailto:marcimetzger@gmail.com">marcimetzger@gmail.com</a></li>
+                            <li><strong>Phone:</strong> <a href="tel:+12069196886">(206) 919-6886</a></li>
+                            <li><strong>Address:</strong> 3190 HW-160, Suite F, Pahrump, NV 89048</li>
+                        </ul>
+                        <h4 class=""><strong>Office Hours:</strong></h4>
+                        <ul class="list-unstyled">
+                            <li>Monday – Friday: 8:00 AM – 7:00 PM</li>
+                            <li>Saturday – Sunday: By Appointment</li>
+                        </ul>
+                        <p>Appointments outside office hours available upon request. <br>Just call!</p>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="map-section">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3220.272515167518!2d-115.95782812361564!3d36.184253702177074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c6398c31855555%3A0xca2c250302350734!2s3190%20NV-160%20Suite%20F%2C%20Pahrump%2C%20NV%2089048%2C%20USA!5e0!3m2!1sen!2sph!4v1746850463507!5m2!1sen!2sph"
+                                style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <footer class="footer text-center text-lg-start py-4">
+            <div class="container">
+
+
+                <div class="row align-items-center">
+
+                    <div class="col-md-4 text-md-left mb-3 mb-md-0">
+                        <p class="mb-0 small">© 2025 Marci Metzger Homes. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="social-links col-md-12">
+                            <a href="https://www.facebook.com/MarciHomes" target="_blank"><i
+                                    class="fab fa-facebook"></i></a>
+                            <a href="https://twitter.com/MarciHomes" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/MarciHomes" target="_blank"><i
+                                    class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-md-right small">
+                        <a href="mailto:marcimetzger@gmail.com" class="text-white mx-2">marcimetzger@gmail.com</a>
+                        <a href="tel:+12069196886" class="text-white mx-2">(206) 919-6886</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+    </div>
+
+    <!-- Bootstrap 4 and Scroll Script -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/6fe325caa6.js" crossorigin="anonymous"></script>
+
+    <!-- Scroll Detection Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const scrollContainer = document.querySelector('.scroll-container');
+            const navbar = document.querySelector('.navbar');
+            let lastScrollTop = 0; // Store last scroll position
+
+            scrollContainer.addEventListener('scroll', function () {
+                let currentScrollTop = scrollContainer.scrollTop;
+
+                if (currentScrollTop > lastScrollTop) {
+                    // Scrolling down
+                    if (currentScrollTop > 10) {
+                        navbar.classList.add('scrolled');
+                    }
+                } else {
+                    // Scrolling up
+                    navbar.classList.remove('scrolled');
+                }
+
+                lastScrollTop = currentScrollTop; // Update last scroll position
+            });
+        });
+    </script>
+
+</body>
+
+</html>
